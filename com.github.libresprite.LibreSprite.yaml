@@ -1,6 +1,6 @@
 app-id: com.github.libresprite.LibreSprite
 runtime: org.freedesktop.Platform
-runtime-version: 1.6
+runtime-version: '18.08'
 sdk: org.freedesktop.Sdk
 command: libresprite
 rename-appdata-file: libresprite.appdata.xml
@@ -11,9 +11,6 @@ finish-args:
   - --share=ipc
   - --device=dri
   - --filesystem=home
-build-options:
-  cflags: -O2
-  cxxflags: -O2
 modules:
 
 - name: libresprite
