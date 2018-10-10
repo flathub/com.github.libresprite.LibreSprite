@@ -12,7 +12,6 @@ finish-args:
   - --device=dri
   - --filesystem=home
 modules:
-
 - name: libresprite
   buildsystem: cmake-ninja
   builddir: true
