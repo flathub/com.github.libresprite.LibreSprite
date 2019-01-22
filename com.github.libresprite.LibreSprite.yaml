@@ -32,6 +32,6 @@ modules:
   sources:
   - type: git
     url: https://github.com/LibreSprite/LibreSprite
-    commit: 0a01bb9a9d6cf65868cebc7f3df346044a6b1534
+    commit: f9002f282afd8a6a31bb4cd2dc6b665c24bd7779
   post-install:
   - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
