@@ -33,5 +33,7 @@ modules:
   - type: git
     url: https://github.com/LibreSprite/LibreSprite
     commit: 73f138ff13acdd85017e1f6d2ed44d4b9ff6dca3
+  - type: patch
+    path: appdata.patch
   post-install:
   - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png

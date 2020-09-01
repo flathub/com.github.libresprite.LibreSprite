@@ -1,0 +1,16 @@
+--- LibreSprite/desktop/libresprite.appdata.xml
++++ LibreSprite/desktop/libresprite.appdata.xml
+@@ -8,6 +8,13 @@
+   <description>
+     <p>LibreSprite lets you create 2D animations for videogames. From sprites, to pixel-art, retro style graphics, and whatever you like about the 8-bit (and 16-bit) era.</p>
+   </description>
++  <screenshots>
++    <screenshot>https://raw.githubusercontent.com/flathub/com.github.libresprite.LibreSprite/d6742fe1bbb92a78ae899b5db7d1bbc659aabbe4/ls.jpg</screenshot>
++  </screenshots>
++  <releases>
++    <release date="2020-07-19" version="v1.1.7-73f138ff13acdd85017e1f6d2ed44d4b9ff6dca3" />
++  </releases>
++  <content_rating type="oars-1.1" />
+   <url type="homepage">https://github.com/LibreSprite/LibreSprite</url>
+   <url type="bugtracker">https://github.com/LibreSprite/LibreSprite/issues/</url>
+ </application>
