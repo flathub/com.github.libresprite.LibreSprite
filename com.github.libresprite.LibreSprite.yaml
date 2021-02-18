@@ -33,6 +33,10 @@ modules:
   - type: git
     url: https://github.com/LibreSprite/LibreSprite
     commit: 73f138ff13acdd85017e1f6d2ed44d4b9ff6dca3
+    x-checker-data:
+      type: anitya
+      project-id: 153525
+      tag-template: v$version
   - type: patch
     path: appdata.patch
   post-install:
