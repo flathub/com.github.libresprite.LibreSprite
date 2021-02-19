@@ -1,22 +1,19 @@
 diff --git a/desktop/libresprite.appdata.xml b/desktop/libresprite.appdata.xml
+index 199c9a5f..1ccfe21e 100644
 --- a/desktop/libresprite.appdata.xml
 +++ b/desktop/libresprite.appdata.xml
-@@ -9,11 +9,4 @@
-     <p>LibreSprite lets you create 2D animations for videogames. From sprites, to pixel-art, retro style graphics, and whatever you like about the 8-bit (and 16-bit) era.</p>
+@@ -10,4 +10,14 @@
    </description>
--  <screenshots>
--    <screenshot>https://raw.githubusercontent.com/flathub/com.github.libresprite.LibreSprite/master/ls.jpg</screenshot>
--  </screenshots>
--  <releases>
--    <release date="2020-07-19" version="v1.1.7-73f138ff13acdd85017e1f6d2ed44d4b9ff6dca3" />
--  </releases>
--  <content_rating type="oars-1.1" />
    <url type="homepage">https://github.com/LibreSprite/LibreSprite</url>
    <url type="bugtracker">https://github.com/LibreSprite/LibreSprite/issues/</url>
-@@ -26,2 +19,6 @@
-   <url type="bugtracker">https://github.com/LibreSprite/LibreSprite/issues/</url>
++  <screenshots>
++    <screenshot type="default">
++      <caption>Main window</caption>
++      <image type="source">https://github.com/flathub/com.github.libresprite.LibreSprite/raw/master/ls.jpg</image>
++    </screenshot>
++  </screenshots>
 +  <content_rating type="oars-1.1" />
 +  <releases>
-+    <release date="2018-06-03" version="1.0-dev" />
++    <release date="2020-07-19" version="1.0-dev" />
 +  </releases>
  </application>
