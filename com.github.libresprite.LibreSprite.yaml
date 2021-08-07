@@ -37,6 +37,7 @@ modules:
       type: anitya
       project-id: 153525
       tag-template: v$version
+      stable-only: true
   - type: patch
     path: appdata.patch
   post-install:
