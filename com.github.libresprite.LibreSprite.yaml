@@ -44,7 +44,7 @@ modules:
   - -Wno-dev
   - -DWITH_DESKTOP_INTEGRATION=ON
   sources:
-  - type: git
+  - type: archive
     url: https://github.com/LibreSprite/LibreSprite/archive/f8434a89a9669d8fc7acf4723c38c2600b6a784d.zip
     sha256: 4937b034b7ed4cd17ada971d90083c1cf36e3b4ae34028bce7e4b3ae1ad0cae8
     x-checker-data:
