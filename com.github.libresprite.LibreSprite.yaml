@@ -44,13 +44,14 @@ modules:
   - -Wno-dev
   - -DWITH_DESKTOP_INTEGRATION=ON
   sources:
-  - type: archive
-    url: https://github.com/LibreSprite/LibreSprite/archive/f8434a89a9669d8fc7acf4723c38c2600b6a784d.zip
-    sha256: 4937b034b7ed4cd17ada971d90083c1cf36e3b4ae34028bce7e4b3ae1ad0cae8
+  # use git, so that submodules don't have to be added as sources to the module
+  - type: git
+    url: https://github.com/LibreSprite/LibreSprite
+    commit: f8434a89a9669d8fc7acf4723c38c2600b6a784d
     x-checker-data:
       type: anitya
       project-id: 153525
-      url-template: https://github.com/LibreSprite/LibreSprite/archive/refs/tags/v$version.tar.gz
+      tag-template: v$version
       stable-only: true
   post-install:
   - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
