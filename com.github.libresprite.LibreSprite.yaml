@@ -12,33 +12,45 @@ finish-args:
   - --device=dri
   - --filesystem=home
 modules:
-
+- name: gtest
+  buildsystem: cmake-ninja
+  sources:
+  - type: archive
+    url: https://github.com/google/googletest/archive/release-1.10.0.tar.gz
+    sha256: 9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb
+  
+# LibreSprite fails to build with upstream tinyxml
+# module copied from https://github.com/flathub/tv.kodi.Kodi/blob/master/modules/tinyxml/tinyxml.json
+- name: tinyxml
+  cleanup:
+  - "/include"
+  - "/share/doc"
+  - "*.a"
+  - "*.la"
+  - "/lib/*.so"
+  sources:
+  - type: archive
+    url: http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz
+    sha256: 8164c9ad48b9028667768a584d62f7760cfbfb90d0dd6214ad174403058da10c
+  - type: script
+    dest-filename: autogen.sh
+    commands:
+    - autoreconf -vfi
+    
 - name: libresprite
   buildsystem: cmake-ninja
   builddir: true
   config-opts:
-  - -DUSE_SHARED_CURL=ON
-  - -DUSE_SHARED_GIFLIB=ON
-  - -DUSE_SHARED_GTEST=OFF
-  - -DUSE_SHARED_JPEGLIB=ON
-  - -DUSE_SHARED_ZLIB=ON
-  - -DUSE_SHARED_LIBPNG=ON
-  - -DUSE_SHARED_LIBLOADPNG=OFF
-  - -DUSE_SHARED_LIBWEBP=ON
-  - -DUSE_SHARED_TINYXML=OFF
-  - -DUSE_SHARED_PIXMAN=ON
-  - -DUSE_SHARED_FREETYPE=ON
+  - -Wno-dev
   - -DWITH_DESKTOP_INTEGRATION=ON
   sources:
   - type: git
-    url: https://github.com/LibreSprite/LibreSprite
-    commit: 73f138ff13acdd85017e1f6d2ed44d4b9ff6dca3
+    url: https://github.com/LibreSprite/LibreSprite/archive/f8434a89a9669d8fc7acf4723c38c2600b6a784d.zip
+    sha256: 4937b034b7ed4cd17ada971d90083c1cf36e3b4ae34028bce7e4b3ae1ad0cae8
     x-checker-data:
       type: anitya
       project-id: 153525
-      tag-template: v$version
+      url-template: https://github.com/LibreSprite/LibreSprite/archive/refs/tags/v$version.tar.gz
       stable-only: true
-  - type: patch
-    path: appdata.patch
   post-install:
   - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
