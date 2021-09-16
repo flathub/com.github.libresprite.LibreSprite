@@ -51,7 +51,7 @@ modules:
   # use git, so that submodules don't have to be added as sources to the module
   - type: git
     url: https://github.com/LibreSprite/LibreSprite
-    commit: f8434a89a9669d8fc7acf4723c38c2600b6a784d
+    commit: 126e74e378e61d58fb8b5736e6f353dc84cfbac6
     x-checker-data:
       type: anitya
       project-id: 153525
