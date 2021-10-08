@@ -12,50 +12,51 @@ finish-args:
   - --device=dri
   - --filesystem=home
 modules:
-- name: gtest
-  buildsystem: cmake-ninja
-  sources:
-  - type: archive
-    url: https://github.com/google/googletest/archive/release-1.10.0.tar.gz
-    sha256: 9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb
-    x-checker-data:
-      type: anitya
-      project-id: 18290
-      url-template: https://github.com/google/googletest/archive/refs/tags/release-$version.tar.gz
-  
+  - name: gtest
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz
+        sha256: b4870bf121ff7795ba20d20bcdd8627b8e088f2d1dab299a031c1034eddc93d5
+        x-checker-data:
+          type: anitya
+          project-id: 18290
+          url-template: https://github.com/google/googletest/archive/refs/tags/release-$version.tar.gz
+
 # LibreSprite fails to build with upstream tinyxml
 # module copied from https://github.com/flathub/tv.kodi.Kodi/blob/master/modules/tinyxml/tinyxml.json
-- name: tinyxml
-  cleanup:
-  - "/include"
-  - "/share/doc"
-  - "*.a"
-  - "*.la"
-  - "/lib/*.so"
-  sources:
-  - type: archive
-    url: http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz
-    sha256: 8164c9ad48b9028667768a584d62f7760cfbfb90d0dd6214ad174403058da10c
-  - type: script
-    dest-filename: autogen.sh
-    commands:
-    - autoreconf -vfi
-    
-- name: libresprite
-  buildsystem: cmake-ninja
-  builddir: true
-  config-opts:
-  - -Wno-dev
-  - -DWITH_DESKTOP_INTEGRATION=ON
-  sources:
+  - name: tinyxml
+    cleanup:
+      - /include
+      - /share/doc
+      - '*.a'
+      - '*.la'
+      - /lib/*.so
+    sources:
+      - type: archive
+        url: http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz
+        sha256: 8164c9ad48b9028667768a584d62f7760cfbfb90d0dd6214ad174403058da10c
+      - type: script
+        dest-filename: autogen.sh
+        commands:
+          - autoreconf -vfi
+
+  - name: libresprite
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -Wno-dev
+      - -DWITH_DESKTOP_INTEGRATION=ON
+    sources:
   # use git, so that submodules don't have to be added as sources to the module
-  - type: git
-    url: https://github.com/LibreSprite/LibreSprite
-    commit: 126e74e378e61d58fb8b5736e6f353dc84cfbac6
-    x-checker-data:
-      type: anitya
-      project-id: 153525
-      tag-template: v$version
-      stable-only: true
-  post-install:
-  - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
+      - type: git
+        url: https://github.com/LibreSprite/LibreSprite
+        commit: 973d0e3d2e3061b41d267fca4d566a6721d89327
+        x-checker-data:
+          type: anitya
+          project-id: 153525
+          tag-template: v$version
+          stable-only: true
+        tag: v1.2-973d0e3d
+    post-install:
+      - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
