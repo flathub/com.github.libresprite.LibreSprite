@@ -21,7 +21,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 18290
-          url-template: https://github.com/google/googletest/archive/refs/tags/release-$version.tar.gz
+          url-template: https://github.com/google/googletest/archive/refs/tags/v$version.tar.gz
 
 # LibreSprite fails to build with upstream tinyxml
 # module copied from https://github.com/flathub/tv.kodi.Kodi/blob/master/modules/tinyxml/tinyxml.json
