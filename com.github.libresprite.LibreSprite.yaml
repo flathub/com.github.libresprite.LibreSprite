@@ -57,6 +57,5 @@ modules:
           project-id: 153525
           tag-template: v$version
           stable-only: true
-        tag: v1.0
     post-install:
       - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
