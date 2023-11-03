@@ -1,6 +1,6 @@
 app-id: com.github.libresprite.LibreSprite
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: libresprite
 rename-appdata-file: libresprite.appdata.xml
@@ -51,7 +51,7 @@ modules:
   # use git, so that submodules don't have to be added as sources to the module
       - type: git
         url: https://github.com/LibreSprite/LibreSprite
-        commit: e3c4506ebc8f5a25a3e558c9d482445b7bc193be
+        commit: 4dac17fd198288d91c07592373449dcdddaf7e24
         x-checker-data:
           type: anitya
           project-id: 153525
