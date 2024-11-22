@@ -51,11 +51,12 @@ modules:
   # use git, so that submodules don't have to be added as sources to the module
       - type: git
         url: https://github.com/LibreSprite/LibreSprite
-        commit: 4dac17fd198288d91c07592373449dcdddaf7e24
+        commit: dce8cfe7b6d366fe0ae8f3b35740c0f9e2e4d9e0
         x-checker-data:
           type: anitya
           project-id: 153525
           tag-template: v$version
           stable-only: true
+        tag: v1.1
     post-install:
       - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
