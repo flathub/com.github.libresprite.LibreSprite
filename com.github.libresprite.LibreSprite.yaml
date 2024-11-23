@@ -7,8 +7,7 @@ rename-appdata-file: libresprite.appdata.xml
 rename-desktop-file: libresprite.desktop
 rename-icon: libresprite
 finish-args:
-  - --socket=x11
-  - --socket=wayland
+  - --socket=fallback-x11
   - --share=ipc
   - --device=dri
   - --filesystem=home
