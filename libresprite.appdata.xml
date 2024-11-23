@@ -1,0 +1,7 @@
+<component type="runtime">
+    <id>com.github.libresprite.LibreSprite</id>
+    <name>LibreSprite</name>
+    <summary>A Free and Open-Source Sprite Editor</summary>
+    <description>LibreSprite is a sprite editing tool.</description>
+    <url type="homepage">https://libresprite.github.io</url>
+</component>
