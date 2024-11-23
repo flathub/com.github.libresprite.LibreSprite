@@ -7,10 +7,10 @@ rename-appdata-file: libresprite.appdata.xml
 rename-desktop-file: libresprite.desktop
 rename-icon: libresprite
 finish-args:
-  - --socket=wayland
   - --socket=fallback-x11
+  - --socket=wayland
   - --share=ipc
-  - --device=dri  
+  - --device=dri
   - --filesystem=home
 modules:
   - name: gtest
