@@ -10,7 +10,7 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --share=ipc
-  - --device=dri
+  - --device=dri  
   - --filesystem=home
 modules:
   - name: gtest
