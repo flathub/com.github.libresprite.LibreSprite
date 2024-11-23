@@ -8,6 +8,7 @@ rename-desktop-file: libresprite.desktop
 rename-icon: libresprite
 finish-args:
   - --socket=x11
+  - --socket=wayland
   - --share=ipc
   - --device=dri
   - --filesystem=home
