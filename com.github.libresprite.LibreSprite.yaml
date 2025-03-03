@@ -16,8 +16,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz
-        sha256: 8ad598c73ad796e0d8280b082cebd82a630d73e73cd3c70057938a6501bba5d7
+        url: https://github.com/google/googletest/archive/refs/tags/v1.16.0.tar.gz
+        sha256: 78c676fc63881529bf97bf9d45948d905a66833fbfa5318ea2cd7478cb98f399
         x-checker-data:
           type: anitya
           project-id: 18290
@@ -51,11 +51,12 @@ modules:
   # use git, so that submodules don't have to be added as sources to the module
       - type: git
         url: https://github.com/LibreSprite/LibreSprite
-        commit: 4dac17fd198288d91c07592373449dcdddaf7e24
+        commit: 5cb089be32f56b4ae559ae51f0c5666049f41bca
         x-checker-data:
           type: anitya
           project-id: 153525
           tag-template: v$version
           stable-only: true
+        tag: v1.2
     post-install:
       - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
