@@ -1,13 +1,14 @@
 app-id: com.github.libresprite.LibreSprite
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: libresprite
 rename-appdata-file: libresprite.appdata.xml
 rename-desktop-file: libresprite.desktop
 rename-icon: libresprite
 finish-args:
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --share=ipc
   - --device=dri
   - --filesystem=home
@@ -16,30 +17,23 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz
-        sha256: 8ad598c73ad796e0d8280b082cebd82a630d73e73cd3c70057938a6501bba5d7
+        url: https://github.com/google/googletest/archive/refs/tags/v1.16.0.tar.gz
+        sha256: 78c676fc63881529bf97bf9d45948d905a66833fbfa5318ea2cd7478cb98f399
         x-checker-data:
           type: anitya
           project-id: 18290
           url-template: https://github.com/google/googletest/archive/refs/tags/v$version.tar.gz
-
-# LibreSprite fails to build with upstream tinyxml
-# module copied from https://github.com/flathub/tv.kodi.Kodi/blob/master/modules/tinyxml/tinyxml.json
-  - name: tinyxml
     cleanup:
-      - /include
-      - /share/doc
-      - '*.a'
-      - '*.la'
-      - /lib/*.so
+      - '*'
+
+  - name: tinyxml
+    buildsystem: cmake
     sources:
-      - type: archive
-        url: http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz
-        sha256: 8164c9ad48b9028667768a584d62f7760cfbfb90d0dd6214ad174403058da10c
-      - type: script
-        dest-filename: autogen.sh
-        commands:
-          - autoreconf -vfi
+      - type: git
+        url: https://github.com/leethomason/tinyxml2.git
+        tag: 11.0.0
+    cleanup:
+      - '*'
 
   - name: libresprite
     buildsystem: cmake-ninja
@@ -51,11 +45,12 @@ modules:
   # use git, so that submodules don't have to be added as sources to the module
       - type: git
         url: https://github.com/LibreSprite/LibreSprite
-        commit: 4dac17fd198288d91c07592373449dcdddaf7e24
+        commit: dce8cfe7b6d366fe0ae8f3b35740c0f9e2e4d9e0
         x-checker-data:
           type: anitya
           project-id: 153525
           tag-template: v$version
           stable-only: true
+        tag: v1.1
     post-install:
       - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
