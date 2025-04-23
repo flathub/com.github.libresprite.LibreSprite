@@ -3,7 +3,7 @@ runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: libresprite
-rename-appdata-file: libresprite.appdata.xml
+rename-appdata-file: io.github.libresprite.libresprite.metainfo.xml
 rename-desktop-file: libresprite.desktop
 rename-icon: libresprite
 finish-args:
@@ -52,5 +52,11 @@ modules:
           tag-template: v$version
           stable-only: true
         tag: v1.1
+
+        # LibreSprite-provided meta does not currently contain developer information
+        # Until it does, we provide a version with developer information added
+      - type: patch
+        path: patches/com.github.libresprite.libresprite.metainfo.xml.patch
     post-install:
       - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
+

@@ -1,0 +1,14 @@
+diff --git a/desktop/io.github.libresprite.libresprite.metainfo.xml b/desktop/io.github.libresprite.libresprite.metainfo.xml
+index cdb507fff..28af1c496 100644
+--- a/desktop/io.github.libresprite.libresprite.metainfo.xml
++++ b/desktop/io.github.libresprite.libresprite.metainfo.xml
+@@ -19,6 +19,9 @@
+ 		<li>Several file types supported for your sprites and animations</li>
+ 		</ul>
+ 	</description>
++	<developer id="com.github.libresprite">
++		<name>LibreSprite Developers</name>
++	</developer>
+ 	<url type="homepage">https://libresprite.github.io</url>
+ 	<url type="bugtracker">https://github.com/LibreSprite/LibreSprite/issues/</url>
+ 	<url type="vcs-browser">https://github.com/LibreSprite/LibreSprite/</url>
