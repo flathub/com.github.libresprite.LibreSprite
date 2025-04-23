@@ -27,7 +27,7 @@ modules:
       - '*'
 
   - name: tinyxml
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/leethomason/tinyxml2.git
