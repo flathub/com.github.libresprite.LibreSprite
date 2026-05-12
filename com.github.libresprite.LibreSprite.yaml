@@ -1,6 +1,6 @@
 app-id: com.github.libresprite.LibreSprite
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: libresprite
 rename-appdata-file: io.github.libresprite.libresprite.metainfo.xml
@@ -13,8 +13,11 @@ finish-args:
   - --device=dri
   - --filesystem=home
 modules:
+  - shared-modules/SDL2/SDL2_image.json
   - name: gtest
     buildsystem: cmake-ninja
+    cleanup:
+      - '*'
     sources:
       - type: archive
         url: https://github.com/google/googletest/archive/refs/tags/v1.17.0.tar.gz
@@ -23,17 +26,16 @@ modules:
           type: anitya
           project-id: 18290
           url-template: https://github.com/google/googletest/archive/refs/tags/v$version.tar.gz
-    cleanup:
-      - '*'
 
   - name: tinyxml
     buildsystem: cmake-ninja
+    cleanup:
+      - '*'
     sources:
       - type: git
         url: https://github.com/leethomason/tinyxml2.git
         tag: 11.0.0
-    cleanup:
-      - '*'
+        commit: 9148bdf719e997d1f474be6bcc7943881046dba1
 
   - name: libresprite
     buildsystem: cmake-ninja
@@ -41,22 +43,23 @@ modules:
     config-opts:
       - -Wno-dev
       - -DWITH_DESKTOP_INTEGRATION=ON
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    post-install:
+      - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
     sources:
   # use git, so that submodules don't have to be added as sources to the module
       - type: git
         url: https://github.com/LibreSprite/LibreSprite
+        tag: v1.2
         commit: 5cb089be32f56b4ae559ae51f0c5666049f41bca
         x-checker-data:
           type: anitya
           project-id: 153525
           tag-template: v$version
           stable-only: true
-        tag: v1.2
 
         # LibreSprite-provided meta does not currently contain developer information
         # Until it does, we provide a version with developer information added
       - type: patch
         path: patches/com.github.libresprite.libresprite.metainfo.xml.patch
-    post-install:
-      - install -Dm644 /app/share/libresprite/data/icons/ase64.png /app/share/icons/hicolor/64x64/apps/libresprite.png
 
