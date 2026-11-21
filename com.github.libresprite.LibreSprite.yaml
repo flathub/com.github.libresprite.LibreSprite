@@ -20,8 +20,8 @@ modules:
       - '*'
     sources:
       - type: archive
-        url: https://github.com/google/googletest/archive/refs/tags/v1.17.0.tar.gz
-        sha256: 65fab701d9829d38cb77c14acdc431d2108bfdbf8979e40eb8ae567edf10b27c
+        url: https://github.com/google/googletest/archive/refs/tags/v1.18.0.tar.gz
+        sha256: 6e3191c1455468b3fc35a417fb565c1c5071aee1b7e7f85e30cf48a98d37d8b5
         x-checker-data:
           type: anitya
           project-id: 18290
@@ -50,8 +50,8 @@ modules:
   # use git, so that submodules don't have to be added as sources to the module
       - type: git
         url: https://github.com/LibreSprite/LibreSprite
-        tag: v1.2
-        commit: 5cb089be32f56b4ae559ae51f0c5666049f41bca
+        tag: v1.3
+        commit: cdb12a323ce5ec4fce3512bc6590a90228f15bb9
         x-checker-data:
           type: anitya
           project-id: 153525
